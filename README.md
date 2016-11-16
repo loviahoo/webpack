@@ -1,13 +1,22 @@
-webpack是一款模块加载器兼打包工具，它能把各种资源,例如js(含JSX)、coffe、样式（含less/sass）、图片等都作为模块来使用和处理。
+#webpack是一款模块加载器兼打包工具，它能把各种资源,例如js(含JSX)、coffe、样式（含less/sass）、图片等都作为模块来使用和处理。
 优势：
-1、webpack是以commonJS的形式来书写脚本，但对AMD/CMD的支持也很全面，方便旧项目进行代码迁移,对CommonJS、AMD、ES6的语法做了兼容
-2、能被模块化的不仅仅是js了
-3、开发便捷，能替代部分grunt/gulp的工作，比如打包，压缩混淆、图片的base64转码等
-4、扩展性强，插件机制完善。
-5、串联式模块加载器以及插件机制，让其具有更好的灵活性和扩展性。
-6、webpack使用异步IO并具有多级缓存。这使得webpack很快且在增量编译上更加快
+##webpack是以commonJS的形式来书写脚本，但对AMD/CMD的支持也很全面，方便旧项目进行代码迁移,对CommonJS、AMD、ES6的语法做了兼容
+##能被模块化的不仅仅是js了
+##开发便捷，能替代部分grunt/gulp的工作，比如打包，压缩混淆、图片的base64转码等
+##扩展性强，插件机制完善。
+##串联式模块加载器以及插件机制，让其具有更好的灵活性和扩展性。
+##webpack使用异步IO并具有多级缓存。这使得webpack很快且在增量编译上更加快
 
-常用命令：
+webpack的配置主要是为了这几大项目：
+entry
+output
+module
+resolve
+plugins
+
+
+
+#常用命令：
 $ webpack --display-error-details---方便出错时能查阅更详尽的信息
 $ webpack --config XXX.js   //使用另一份配置文件（比如webpack.config2.js）来打包
 $ webpack --watch   //监听变动并自动打包
@@ -51,7 +60,9 @@ css预编译，sass-loader
 
 url-loader--处理图片和其他的静态文件，根据需求将一些图片自动转成base64编码，减轻很多的网络请求
 
-//项目库介绍
+expose-loader---将js暴露到全局
+
+#//项目库介绍
 http://momentjs.cn/docs/
 moment.js--可用来管理处理日期时间的问题，经常会拿来处理一大堆处理函数才能完成一个简单的日期时间显示效果。
 moment.js，不依赖任何第三方库，支持字符串，Date。、时间戳以及数组等格式，格式化日期时间，计算相对时间，获取特定时间后的日期时间等等。
@@ -60,7 +71,7 @@ jquery--是一个高效、精简并且功能丰富的javascript工具库，它�
 https://babeljs.io/
 对babel的很详细的介绍，可以参考阮一峰的ES6 [http://es6.ruanyifeng.com/#docs/]
 
-启用sourceMap
+#启用sourceMap
  source map就是一个信息文件，里面储存着位置信息，也就是说，转码后的代码的每一个位置，所对应的转码前的位置。出错的时候，
  除错工具会直接显示原始代码，而不是转换后的代码
 
@@ -95,4 +106,8 @@ js中的css文件提取，并制定的文件名来进加载
 
 [webpack-dev-middleware]
 只能在生产环境中使用，可以实现在内存中实时打包生成虚拟文件，供浏览器访问以及调试。
+
+[HotModuleReplacementPlugin]--[react-hot-loader]
+代码热替换，使用代码热替换在开发的时候无须刷新页面即可看见更新。
+
 

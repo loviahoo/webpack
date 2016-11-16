@@ -4,6 +4,7 @@ var HtmlwebpackPlugin = require('html-webpack-plugin');
 var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH,'app');
 var BUILD_PATH = path.resolve(ROOT_PATH,'build');
+var webpack = require('webpack');
 
 module.exports = {
   //项目的文件夹 可以直接用文件夹名称 默认会找index.js 也可以确定是哪个文件名字
@@ -17,6 +18,11 @@ module.exports = {
   plugins: [
       new HtmlwebpackPlugin({
         title: 'Hello World app'
+      }),
+      new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery",
+        "window.jQuery": "jquery"
       })
   ],
   devServer:{
@@ -43,8 +49,19 @@ module.exports = {
         query: {
           presets: ['es2015']
         }
+      },
+    ],
+    perLoaders: [
+      {
+        test: /\.jsx?$/,
+        include: APP_PATH,
+        loader: 'jshint-loader'
       }
     ]
+  },
+  devtool: 'eval-source-map',
+  jshint: {
+    "esnext": true
   }
 };
 
